@@ -42,10 +42,10 @@
    - Создан коммит:  
    - Изменения отправлены в удалённый репозиторий
      
-9.**Pull Request**
+9. **Pull Request**
    - Создан Pull Request из ветки develop в main
      
-10.**Мерж**
+10. **Мерж**
    - Смержен PR и удалена ветка develop
      
    ![merge](./screenshots/2.PNG)
