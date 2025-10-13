@@ -44,4 +44,4 @@
    - Создан Pull Request из ветки develop в main
 10.**Мерж**
    - Смержен PR и удалена ветка develop
-   (lab0/screenshots/2.PNG)
+   ![merge](./screenshots/2.PNG)
