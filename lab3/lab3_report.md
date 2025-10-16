@@ -1,64 +1,36 @@
-Цель работы
-Настройка системы мониторинга с использованием стека Prometheus + Node Exporter + Grafana для сбора и визуализации метрик производительности системы.
+# Лабораторная работа #3: Система мониторинга на базе Prometheus и Grafana
 
-Установка и настройка
-1. Запуск контейнеров
-Создание сети для контейнеров
-docker network create monitoring
+## Цель работы
+Научиться настраивать локальную систему мониторинга, собирать метрики с помощью Prometheus и создавать дашборды в Grafana для визуализации данных.
 
-Запуск Node Exporter
-docker run -d --name node-exporter --network monitoring -p 9100:9100 prom/node-exporter:latest
+## Ход работы
 
-Запуск Prometheus
-docker run -d --name prometheus --network monitoring -p 9090:9090 prom/prometheus:latest
+### 1. Создание конфигурации Prometheus
 
-Запуск Grafana
-docker run -d --name grafana --network monitoring -p 3000:3000 grafana/grafana:latest
+- Создал папку `prometheus` для конфигурации:
+- Создал файл prometheus/prometheus.yml
 
-2. Конфигурация Prometheus
-Файл: prometheus.yml
+СКРИН
 
-global:
-scrape_interval: 15s
-evaluation_interval: 15s
+## 2. Запуск Node Exporter
+- Запустил контейнер Node Exporter для сбора системных метрик:
+СКРИН
+- Проверил работу Node Exporter:
+  
+![1](screenshots/2.png)
 
-scrape_configs:
 
-job_name: "prometheus"
-static_configs:
+## 3. Запуск Prometheus
+- Создал том для данных Prometheus
+- Запустил контейнер Prometheus:
 
-targets: ["localhost:9090"]
+![2](screenshots/.png) 
 
-job_name: "node-exporter"
-static_configs:
+## 4. Запуск Grafana
+- Создал том для данных Grafana:
+- Проверил работу Grafana: открыл http://localhost:3000 в браузере (логин: admin, пароль: admin)
+- Добавил источник данных Prometheus:
 
-targets: ["node-exporter:9100"]
+## 5. Тестирование системы
+Проверил все контейнеры:
 
-Копирование конфигурации в контейнер:
-
-docker cp prometheus.yml prometheus:/etc/prometheus/prometheus.yml
-docker restart prometheus
-
-3. Настройка Grafana
-Открыть http://localhost:3000
-
-Логин: admin, пароль: admin
-
-Добавить источник данных: Prometheus
-
-URL: http://prometheus:9090
-
-Создание дашборда
-Основные метрики
-Загрузка CPU:
-node_cpu_seconds_total
-
-Использование памяти:
-node_memory_MemAvailable_bytes
-node_memory_MemTotal_bytes
-
-Дисковые операции:
-node_disk_io_time_seconds_total
-
-Сетевая активность:
-rate(node_network_receive_bytes_total[5m])
