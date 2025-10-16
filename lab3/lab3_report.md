@@ -12,7 +12,7 @@
 **Author:** Ziyazetdinov Ramiz Rustemovich  
 **Date of creation:** 16.10.2025
 
-# Лабораторная работа #3: Система мониторинга на базе Prometheus и Grafana
+# Лабораторная работа #3: Мониторинг с Prometheus и Grafana
 
 ## Цель работы
 Научиться настраивать локальную систему мониторинга, собирать метрики с помощью Prometheus и создавать дашборды в Grafana для визуализации данных.
@@ -55,6 +55,7 @@
 
 ![2](screenshots/6_1.png) 
 ![2](screenshots/6_2.png) 
+
 
 
 
