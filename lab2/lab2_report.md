@@ -1,4 +1,20 @@
-# Лабораторная работа №2
+# ITMO University  
+
+**Faculty:** FTMI  
+**Course:** Introduction in Web Technologies  
+**Academic Year:** 2025 / 2026  
+
+---
+
+## Лабораторная работа №2  
+
+**Group:** U4225  
+**Author:** Ziyazetdinov Ramiz Rustemovich  
+**Date of creation:** 14.10.2025
+
+
+---
+
 ## CI/CD для Docker приложения
 
 ### Цель работы
