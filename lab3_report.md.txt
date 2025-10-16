@@ -1,0 +1,64 @@
+Цель работы
+Настройка системы мониторинга с использованием стека Prometheus + Node Exporter + Grafana для сбора и визуализации метрик производительности системы.
+
+Установка и настройка
+1. Запуск контейнеров
+Создание сети для контейнеров
+docker network create monitoring
+
+Запуск Node Exporter
+docker run -d --name node-exporter --network monitoring -p 9100:9100 prom/node-exporter:latest
+
+Запуск Prometheus
+docker run -d --name prometheus --network monitoring -p 9090:9090 prom/prometheus:latest
+
+Запуск Grafana
+docker run -d --name grafana --network monitoring -p 3000:3000 grafana/grafana:latest
+
+2. Конфигурация Prometheus
+Файл: prometheus.yml
+
+global:
+scrape_interval: 15s
+evaluation_interval: 15s
+
+scrape_configs:
+
+job_name: "prometheus"
+static_configs:
+
+targets: ["localhost:9090"]
+
+job_name: "node-exporter"
+static_configs:
+
+targets: ["node-exporter:9100"]
+
+Копирование конфигурации в контейнер:
+
+docker cp prometheus.yml prometheus:/etc/prometheus/prometheus.yml
+docker restart prometheus
+
+3. Настройка Grafana
+Открыть http://localhost:3000
+
+Логин: admin, пароль: admin
+
+Добавить источник данных: Prometheus
+
+URL: http://prometheus:9090
+
+Создание дашборда
+Основные метрики
+Загрузка CPU:
+node_cpu_seconds_total
+
+Использование памяти:
+node_memory_MemAvailable_bytes
+node_memory_MemTotal_bytes
+
+Дисковые операции:
+node_disk_io_time_seconds_total
+
+Сетевая активность:
+rate(node_network_receive_bytes_total[5m])
