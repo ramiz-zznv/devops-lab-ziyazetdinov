@@ -8,19 +8,34 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.expand
     - search.highlight
     - search.suggest
+    - content.code.copy
   palette:
     - scheme: default
-      primary: blue
-      accent: light blue
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
     - scheme: slate
       primary: blue
-      accent: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: images/logo.png
+  favicon: images/favicon.ico
 
 nav:
   - Главная: index.md
   - О себе: about.md
+  - Резюме: resume.md
+  - Достижения: achievements.md
   - Проекты: projects.md
   - Контакты: contacts.md
 
@@ -29,12 +44,27 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - tables
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
 
 extra:
+  generator: false
   social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ramiz-zznv
+      name: GitHub
     - icon: fontawesome/brands/telegram
       link: https://t.me/ramiz_zzv
       name: Telegram
     - icon: fontawesome/solid/envelope
       link: mailto:ramiz.zznv@gmail.com
       name: Email
+
+copyright: |
+  &copy; 2025 Рамиз Зиязетдинов. Сайт создан с помощью <a href="https://www.mkdocs.org/" target="_blank">MkDocs</a> и <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">Material theme</a>.
