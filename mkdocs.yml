@@ -1,0 +1,38 @@
+site_name: сайт Рамиза
+site_description: Персональный сайт 
+site_author: Рамиз
+site_url: https://ramiz-zznv.github.io/devops-lab-ziyazetdinov/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: black
+      accent: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Главная: index.md
+  - Обо мне: about.md
+  - Проекты: projects.md
+  - Контакты: contacts.md
+
+markdown_extensions:
+  - tables
+
+extra:
+  generator: false
+
+copyright: |
+  &copy; 2025 Рамиз Зиязетдинов
